@@ -68,7 +68,7 @@ export default function (editor: Editor, video: string): PanelConf {
                     selector: '#' + btnStartId,
                     type: 'click',
                     fn: () => {
-                        const $file = $('#' + inputUploadId)
+                        const $file = $('#' + inputUploadId, editor)
                         const fileElem = $file.elems[0]
                         if (fileElem) {
                             fileElem.click()
@@ -83,7 +83,7 @@ export default function (editor: Editor, video: string): PanelConf {
                     selector: '#' + inputUploadId,
                     type: 'change',
                     fn: () => {
-                        const $file = $('#' + inputUploadId)
+                        const $file = $('#' + inputUploadId, editor)
                         const fileElem = $file.elems[0]
                         if (!fileElem) {
                             // 返回 true 可关闭 panel
@@ -127,7 +127,7 @@ export default function (editor: Editor, video: string): PanelConf {
                     type: 'click',
                     fn: () => {
                         // 执行插入视频
-                        const $video = $('#' + inputIFrameId)
+                        const $video = $('#' + inputIFrameId, editor)
                         let video = $video.val().trim()
 
                         // 视频为空，则不插入

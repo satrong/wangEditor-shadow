@@ -1,0 +1,1 @@
+export default __CSS_TO_JS_MODULE

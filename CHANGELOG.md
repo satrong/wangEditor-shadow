@@ -1,3 +1,24 @@
+## [1.0.1](https://github.com/satrong/wangEditor/compare/v4.7.9...v1.0.1) (2021-11-04)
+
+
+### Bug Fixes
+
+* 修复 firefox 报错 ([95d866e](https://github.com/satrong/wangEditor/commit/95d866e2fb921dcbb8f678dc70a7bee2de441c2e))
+
+
+### Features
+
+* 支持 shadowDom ([fe72d2b](https://github.com/satrong/wangEditor/commit/fe72d2b6f5405a67c0956f87522a968acb39ecbd))
+
+## [4.7.9](https://github.com/wangeditor-team/wangEditor/compare/v4.7.8...v4.7.9) (2021-10-17)
+
+
+### Bug Fixes
+
+* 修复谷歌内容为空时拼音输入第一个字母丢失的bug ([52301c1](https://github.com/wangeditor-team/wangEditor/commit/52301c127b10b78847f4825a803f49c9195b041a))
+* 修复内容随后设置标题，会报错，而且无法再编辑的问题 ([5022ceb](https://github.com/wangeditor-team/wangEditor/commit/5022ceb2ee97f8aed87427b0fb363c5262fad2a5))
+* 修复设置标题控制台报错的bug ([f4680b2](https://github.com/wangeditor-team/wangEditor/commit/f4680b2634679ffd3d0186f24e713438fcc907d0))
+
 ## [4.7.8](https://github.com/wangeditor-team/wangEditor/compare/v4.7.7...v4.7.8) (2021-09-09)
 
 

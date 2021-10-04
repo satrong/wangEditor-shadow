@@ -73,6 +73,12 @@ class Editor {
     public isEnable: Boolean
     public onSelectionChange: SelectionChange
 
+    /**
+     * 如果将编辑器放在 ShadowDom 中，
+     * 则需将 ShadowDom 赋值给 editor.shadowDom
+     * */
+    public shadowDom: ShadowRoot | null = null
+
     // 实例销毁前需要执行的钩子集合
     private beforeDestroyHooks: Function[] = []
 

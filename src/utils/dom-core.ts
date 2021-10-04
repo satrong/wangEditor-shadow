@@ -54,8 +54,8 @@ function _isDOMList<T extends HTMLCollection | NodeList>(selector: unknown): sel
  * 封装 querySelectorAll
  * @param selector css 选择器
  */
-function _querySelectorAll(selector: string): HTMLElement[] {
-    const elems = document.querySelectorAll(selector)
+function _querySelectorAll(selector: string, dom?: HTMLElement | ShadowRoot | null): HTMLElement[] {
+    const elems = dom ? dom.querySelectorAll(selector) : document.querySelectorAll(selector)
     return toArray(elems)
 }
 
@@ -115,7 +115,7 @@ export class DomElement<T extends DomElementSelector = DomElementSelector> {
      * 构造函数
      * @param selector 任一类型的选择器
      */
-    constructor(selector: T) {
+    constructor(selector: T, editor?: Editor) {
         // 初始化属性
         this.elems = []
         this.length = this.elems.length
@@ -150,7 +150,7 @@ export class DomElement<T extends DomElementSelector = DomElementSelector> {
                 selectorResult = _createElemByHTML(tmpSelector)
             } else {
                 // 如 #id .class
-                selectorResult = _querySelectorAll(tmpSelector)
+                selectorResult = _querySelectorAll(tmpSelector, editor && editor.shadowDom)
             }
         }
 
@@ -258,7 +258,8 @@ export class DomElement<T extends DomElementSelector = DomElementSelector> {
             const agentFn: listener = function (e) {
                 const target = e.target as HTMLElement
                 if (target.matches(selector as string)) {
-                    ;(fn as listener).call(target, e)
+                    const f = fn as listener
+                    f.call(target, e)
                 }
             }
             elem.addEventListener(type, agentFn)

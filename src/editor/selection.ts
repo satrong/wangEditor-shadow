@@ -16,6 +16,23 @@ class SelectionAndRange {
     }
 
     /**
+     * 获取当前的选区
+     */
+    public getSelection() {
+        let selection
+        if (
+            this.editor.shadowDom &&
+            Object.prototype.toString.call(this.editor.shadowDom) === '[object ShadowRoot]' &&
+            typeof this.editor.shadowDom.getSelection === 'function'
+        ) {
+            selection = this.editor.shadowDom.getSelection()
+        } else {
+            selection = window.getSelection ? window.getSelection() : document.getSelection()
+        }
+        return selection as Selection
+    }
+
+    /**
      * 获取当前 range
      */
     public getRange(): Range | null | undefined {
@@ -34,7 +51,8 @@ class SelectionAndRange {
         }
 
         // 获取当前的选区
-        const selection = window.getSelection() as Selection
+        const selection = this.getSelection()
+
         if (selection.rangeCount === 0) {
             return
         }
@@ -155,7 +173,7 @@ class SelectionAndRange {
      * 恢复选区范围
      */
     public restoreSelection(): void {
-        const selection = window.getSelection()
+        const selection = this.getSelection()
         const r = this._currentRange
         if (selection && r) {
             selection.removeAllRanges()
@@ -204,7 +222,7 @@ class SelectionAndRange {
      * @param endDom 选区结束的元素
      */
     public createRangeByElems(startDom: Node, endDom: Node): void {
-        let selection = window.getSelection ? window.getSelection() : document.getSelection()
+        let selection = this.getSelection()
         //清除所有的选区
         selection?.removeAllRanges()
         const range = document.createRange()
@@ -300,7 +318,7 @@ class SelectionAndRange {
      * 获取光标在当前选区的位置
      */
     public getCursorPos(): number | undefined {
-        const selection = window.getSelection()
+        const selection = this.getSelection()
 
         return selection?.anchorOffset
     }
@@ -309,7 +327,7 @@ class SelectionAndRange {
      * 清除当前选区的Range,notice:不影响已保存的Range
      */
     public clearWindowSelectionRange(): void {
-        const selection = window.getSelection()
+        const selection = this.getSelection()
         if (selection) {
             selection.removeAllRanges()
         }
