@@ -36,6 +36,13 @@
   </p>
 </p>
 
+## 与官方相比改动
+将样式独立，使用时需要单独引入样式
+```js
+import E from "wangeditor-nocss";
+import "wangeditor-nocss/index.min.css";
+```
+
 <!-- ABOUT THE PROJECT -->
 ## 项目介绍
 

@@ -4,6 +4,7 @@
  */
 
 const { smart } = require('webpack-merge')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CommonConf = require('./webpack.common')
 const { distPath } = require('./myPath')
 
@@ -21,4 +22,9 @@ module.exports = smart(CommonConf, {
     optimization: {
         minimize: false, // 非压缩
     },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'index.css',
+        }),
+    ],
 })

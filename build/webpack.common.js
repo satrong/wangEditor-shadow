@@ -5,6 +5,7 @@
 
 const path = require('path')
 const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { srcPath } = require('./myPath')
 
 module.exports = {
@@ -20,11 +21,24 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader'],
+                use: [
+                    process.env.NODE_ENV === 'production'
+                        ? MiniCssExtractPlugin.loader
+                        : 'style-loader',
+                    'css-loader',
+                    'postcss-loader',
+                ],
             },
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'],
+                use: [
+                    process.env.NODE_ENV === 'production'
+                        ? MiniCssExtractPlugin.loader
+                        : 'style-loader',
+                    'css-loader',
+                    'postcss-loader',
+                    'less-loader',
+                ],
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
