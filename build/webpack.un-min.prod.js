@@ -5,6 +5,7 @@
 
 const { smart } = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssToJsModuleWebpackPlugin = require('./cssToJsModule')
 const CommonConf = require('./webpack.common')
 const { distPath } = require('./myPath')
 
@@ -25,6 +26,11 @@ module.exports = smart(CommonConf, {
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'index.css',
+        }),
+        new CssToJsModuleWebpackPlugin({
+            cssFile: 'index.css',
+            placeholder: '__CSS_TO_JS_MODULE',
+            jsFile: 'style.js',
         }),
     ],
 })

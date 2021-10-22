@@ -11,6 +11,7 @@ const { srcPath } = require('./myPath')
 module.exports = {
     entry: {
         wangEditor: path.join(srcPath, 'wangEditor.ts'),
+        style: path.join(srcPath, 'style.ts'),
     },
     module: {
         rules: [

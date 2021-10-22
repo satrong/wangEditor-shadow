@@ -40,7 +40,17 @@
 将样式独立，使用时需要单独引入样式
 ```js
 import E from "wangeditor-nocss";
-import "wangeditor-nocss/index.min.css";
+import "wangeditor-nocss/dist/index.min.css";
+```
+
+也可获取 style 字符串，自己手动插入到 dom：
+```js
+import E from "wangeditor-nocss";
+import content from "wangeditor-nocss/dist/style.min.js";
+
+const style = document.createElement('style')
+style.innerHTML = content
+document.head.appendChild(style)
 ```
 
 <!-- ABOUT THE PROJECT -->

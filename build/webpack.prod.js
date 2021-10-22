@@ -12,6 +12,7 @@ const { distPath } = require('./myPath')
 const UglifyPlugin = require('uglifyjs-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssToJsModuleWebpackPlugin = require('./cssToJsModule')
 
 // 包体积分析
 const isAnalyzer = process.env.NODE_ENV === 'production_analyzer'
@@ -20,6 +21,11 @@ const plugins = [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
         filename: 'index.min.css',
+    }),
+    new CssToJsModuleWebpackPlugin({
+        cssFile: 'index.min.css',
+        placeholder: '__CSS_TO_JS_MODULE',
+        jsFile: 'style.min.js',
     }),
 ]
 if (isAnalyzer) {
