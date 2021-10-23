@@ -81,7 +81,7 @@ export default function (editor: Editor): ImgPanelConf {
                     uploadImgFromMedia()
                     return true
                 }
-                const $file = $('#' + upFileId)
+                const $file = $('#' + upFileId, editor)
                 const fileElem = $file.elems[0]
                 if (fileElem) {
                     fileElem.click()
@@ -96,7 +96,7 @@ export default function (editor: Editor): ImgPanelConf {
             selector: '#' + upFileId,
             type: 'change',
             fn: () => {
-                const $file = $('#' + upFileId)
+                const $file = $('#' + upFileId, editor)
                 const fileElem = $file.elems[0] as HTMLInputElement
                 if (!fileElem) {
                     // 返回 true 可关闭 panel
@@ -174,7 +174,7 @@ export default function (editor: Editor): ImgPanelConf {
                     selector: '#' + linkBtnId,
                     type: 'click',
                     fn: () => {
-                        const $linkUrl = $('#' + linkUrlId)
+                        const $linkUrl = $('#' + linkUrlId, editor)
                         const url = $linkUrl.val().trim()
 
                         //如果url为空则直接返回
@@ -182,13 +182,13 @@ export default function (editor: Editor): ImgPanelConf {
 
                         let linkUrlAltText
                         if (config.showLinkImgAlt) {
-                            linkUrlAltText = $('#' + linkUrlAltId)
+                            linkUrlAltText = $('#' + linkUrlAltId, editor)
                                 .val()
                                 .trim()
                         }
                         let linkUrlHrefText
                         if (config.showLinkImgHref) {
-                            linkUrlHrefText = $('#' + linkUrlHrefId)
+                            linkUrlHrefText = $('#' + linkUrlHrefId, editor)
                                 .val()
                                 .trim()
                         }

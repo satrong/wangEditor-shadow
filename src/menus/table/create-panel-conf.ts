@@ -57,8 +57,8 @@ export default function (editor: Editor): PanelConf {
                     selector: '#' + insertBtnId,
                     type: 'click',
                     fn: () => {
-                        const colValue = Number($('#' + colId).val())
-                        const rowValue = Number($('#' + rowId).val())
+                        const colValue = Number($('#' + colId, editor).val())
+                        const rowValue = Number($('#' + rowId, editor).val())
                         //校验是否传值
                         if (isPositiveInteger(rowValue) && isPositiveInteger(colValue)) {
                             createTable.createAction(rowValue, colValue)

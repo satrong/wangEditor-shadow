@@ -112,7 +112,7 @@ export default function (editor: Editor, text: string, languageType: string): Pa
                             let formatCode, codeDom
 
                             const $code = document.getElementById(inputIFrameId)
-                            const $select = $('#' + languageId)
+                            const $select = $('#' + languageId, editor)
 
                             let languageType = $select.val()
                             // @ts-ignore

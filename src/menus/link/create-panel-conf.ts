@@ -136,8 +136,8 @@ export default function (editor: Editor, text: string, link: string): PanelConf 
                                 .getNode()
                             const selection = window.getSelection()
                             // 执行插入链接
-                            const $link = $('#' + inputLinkId)
-                            const $text = $('#' + inputTextId)
+                            const $link = $('#' + inputLinkId, editor)
+                            const $text = $('#' + inputTextId, editor)
                             let link = $link.val().trim()
                             let text = $text.val().trim()
 

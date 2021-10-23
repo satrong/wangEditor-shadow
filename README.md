@@ -37,20 +37,39 @@
 </p>
 
 ## 与官方相比改动
-将样式独立，使用时需要单独引入样式
+1. 将样式独立，使用时需要单独引入样式
 ```js
-import E from "wangeditor-nocss";
-import "wangeditor-nocss/dist/index.min.css";
+import E from "wangeditor-shadow";
+import "wangeditor-shadow/dist/index.min.css";
 ```
 
 也可获取 style 字符串，自己手动插入到 dom：
 ```js
-import E from "wangeditor-nocss";
-import content from "wangeditor-nocss/dist/style.min.js";
+import E from "wangeditor-shadow";
+import content from "wangeditor-shadow/dist/style.min.js";
 
 const style = document.createElement('style')
 style.innerHTML = content
 document.head.appendChild(style)
+```
+
+2. 支持 ShadowDom
+```js
+import E from "wangeditor-shadow";
+import content from "wangeditor-shadow/dist/style.min.js";
+
+const shadowDom = document.getElementById('yourEl').attachShadow({ mode: 'open' })
+const div = document.createElement('div')
+shadowDom.appendChild(div)
+
+const styleEl = document.createElement('style')
+styleEl.innerHTML = content
+document.head.appendChild(styleEl) // 将样式注入到 document.head ，用于加载图标字体
+shadowDom.appendChild(styleEl.cloneNode(true)) // shadowDom 中加载样式
+
+const editor = new E(div)
+editor.shadowDom = shadowDom // 设置 shadowDom
+editor.create()
 ```
 
 <!-- ABOUT THE PROJECT -->
@@ -70,7 +89,7 @@ wangEditor 是一款使用 Typescript 开发的 Web 富文本编辑器， 轻量
 
 ### NPM
 ```bash
-npm i wangeditor --save
+npm i wangeditor-shadow --save
 ```
 安装后几行代码即可创建一个编辑器：
 

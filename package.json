@@ -1,12 +1,13 @@
 {
-  "name": "wangeditor-nocss",
-  "version": "4.7.10",
+  "name": "wangeditor-shadow",
+  "version": "1.0.0",
   "description": "wangEditor （不包含样式，样式需要额外引入） - 轻量级 web 富文本编辑器，配置方便，使用简单，开源免费",
   "homepage": "http://www.wangeditor.com/",
   "keywords": [
     "wangEditor",
     "富文本编辑器",
-    "富文本"
+    "富文本",
+    "editor shadow"
   ],
   "main": "dist/wangEditor.min.js",
   "types": "dist/wangEditor.d.ts",
