@@ -22,7 +22,8 @@ class SelectionAndRange {
         let selection
         if (
             this.editor.shadowDom &&
-            Object.prototype.toString.call(this.editor.shadowDom) === '[object ShadowRoot]'
+            Object.prototype.toString.call(this.editor.shadowDom) === '[object ShadowRoot]' &&
+            typeof this.editor.shadowDom.getSelection === 'function'
         ) {
             selection = this.editor.shadowDom.getSelection()
         } else {
