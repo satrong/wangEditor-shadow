@@ -1,3 +1,15 @@
+## [1.0.1](https://github.com/satrong/wangEditor/compare/v4.7.9...v1.0.1) (2021-11-04)
+
+
+### Bug Fixes
+
+* 修复 firefox 报错 ([95d866e](https://github.com/satrong/wangEditor/commit/95d866e2fb921dcbb8f678dc70a7bee2de441c2e))
+
+
+### Features
+
+* 支持 shadowDom ([fe72d2b](https://github.com/satrong/wangEditor/commit/fe72d2b6f5405a67c0956f87522a968acb39ecbd))
+
 ## [4.7.9](https://github.com/wangeditor-team/wangEditor/compare/v4.7.8...v4.7.9) (2021-10-17)
 
 
